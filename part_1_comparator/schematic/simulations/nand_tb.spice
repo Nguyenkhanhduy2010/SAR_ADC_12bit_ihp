@@ -1,0 +1,40 @@
+** sch_path: /home/designer/shared/IHP-AnalogAcademy/modules/module_3_8_bit_SAR_ADC/part_2_digital_comps/nand_gate/testbench/nand_tb.sch
+**.subckt nand_tb Vo
+*.opin Vo
+V1 A GND dc 0 ac 0 PULSE(0 1 0 1n 1n 2u 4u)
+V6 vdd GND 1.2
+V2 B GND dc 0 ac 0 PULSE(0 1 0 1n 1n 1u 2u)
+C1 Vo GND 50f m=1
+x1 vdd Vo B A GND nand_gate
+**** begin user architecture code
+
+
+.control
+tran 1u 4u
+write nand_tb.raw
+.endc
+
+
+ .lib cornerMOSlv.lib mos_tt
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:
+*+  /home/designer/shared/IHP-AnalogAcademy/modules/module_3_8_bit_SAR_ADC/part_2_digital_comps/nand_gate/schematic/nand_gate.sym # of pins=5
+** sym_path: /home/designer/shared/IHP-AnalogAcademy/modules/module_3_8_bit_SAR_ADC/part_2_digital_comps/nand_gate/schematic/nand_gate.sym
+** sch_path: /home/designer/shared/IHP-AnalogAcademy/modules/module_3_8_bit_SAR_ADC/part_2_digital_comps/nand_gate/schematic/nand_gate.sch
+.subckt nand_gate vdd Vo B A gnd
+*.iopin vdd
+*.iopin gnd
+*.ipin A
+*.opin Vo
+*.ipin B
+XM5 Vo A vdd vdd sg13_lv_pmos w=0.5u l=0.13u ng=1 m=1
+XM6 Vo A net1 gnd sg13_lv_nmos w=0.25u l=0.13u ng=1 m=1
+XM1 net1 B gnd gnd sg13_lv_nmos w=0.25u l=0.13u ng=1 m=1
+XM2 Vo B vdd vdd sg13_lv_pmos w=0.5u l=0.13u ng=1 m=1
+.ends
+
+.GLOBAL GND
+.end
