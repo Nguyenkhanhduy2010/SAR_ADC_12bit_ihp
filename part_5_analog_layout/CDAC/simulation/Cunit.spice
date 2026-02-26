@@ -1,0 +1,5 @@
+** sch_path: /home/designer/shared/IHP-AnalogAcademy/modules/module_3_8_bit_SAR_ADC/part_5_analog_layout/CDAC/schematic/Cunit.sch
+.subckt Cunit vo vref
+*.PININFO vo:B vref:B
+C1 vo vref cap_cmim w=5.71e-6 l=5.71e-6 m=1
+.ends
